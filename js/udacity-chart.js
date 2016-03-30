@@ -1,7 +1,34 @@
-var foundingYear = [1955, 1976, 1975, 1994, 1998, 2004],
-  revenue = [210.82, 233.71, 93.58, 107, 74.98, 17.93],
-  marketCap = [350.59, 591.66, 430.61, 264.81, 520.85, 320.64],
-  hq = ['Nebraska', 'California', 'Washington', 'Washington', 'California', 'California'];
+var companyData = [{
+  foundingYear: 1955,
+  revenue: 210.82,
+  marketCap: 350.59,
+  hq: 'Nebraska'
+}, {
+  foundingYear: 1976,
+  revenue: 233.71,
+  marketCap: 591.66,
+  hq: 'California'
+}, {
+  foundingYear: 1975,
+  revenue: 93.58,
+  marketCap: 430.61,
+  hq: 'Washington'
+}, {
+  foundingYear: 1994,
+  revenue: 107,
+  marketCap: 264.81,
+  hq: 'Washington'
+}, {
+  foundingYear: 1998,
+  revenue: 74.98,
+  marketCap: 520.85,
+  hq: 'California'
+}, {
+  foundingYear: 2004,
+  revenue: 17.93,
+  marketCap: 320.64,
+  hq: 'California'
+}];
 
 FusionCharts.ready(function() {
   var unicorns = new FusionCharts({
@@ -117,10 +144,10 @@ FusionCharts.ready(function() {
     "events": {
       "dataPlotRollOver": function(eventObj, dataObj) {
         document.getElementById('company').innerHTML = dataObj.categoryLabel;
-        document.getElementById('year').innerHTML = "Founded in <strong>" + foundingYear[dataObj.index] + "</strong>.";
-        document.getElementById('revenue').innerHTML = "2015 revenue - <strong>" + revenue[dataObj.index] + "bn.</strong>";
-        document.getElementById('marketCap').innerHTML = "Current market cap - <strong>" + marketCap[dataObj.index] + "bn.</strong>";
-        document.getElementById('hq').innerHTML = "Headquartered in <strong>" + hq[dataObj.index] + ", U.S.</strong>";
+        document.getElementById('year').innerHTML = "Founded in <strong>" + companyData[dataObj.index].foundingYear + "</strong>.";
+        document.getElementById('revenue').innerHTML = "2015 revenue - <strong>" + companyData[dataObj.index].revenue + "bn.</strong>";
+        document.getElementById('marketCap').innerHTML = "Current market cap - <strong>" + companyData[dataObj.index].marketCap + "bn.</strong>";
+        document.getElementById('hq').innerHTML = "Headquartered in <strong>" + companyData[dataObj.index].hq + ", U.S.</strong>";
       }
     }
   })
